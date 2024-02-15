@@ -6,6 +6,7 @@ import { Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark } from 
 import Hyperified from "../src/Data/Hyperified.json";
 import ZeroFucks from "../src/Data/ZeroFucks.json";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import Cursor from "./components/Cursor/Cursor";
 
 function App() {
 	const [response, setResponse] = useState(null);
@@ -24,8 +25,8 @@ function App() {
 		"/faces/face9.png",
 		"/faces/face10.png",
 		"/faces/face11.png",
-	]
-	const [displayedImg, setDisplayedImg] = useState(faces[0])
+	];
+	const [displayedImg, setDisplayedImg] = useState(faces[0]);
 
 	const onCopyHandler = () => {
 		setIsCopied(true);
@@ -33,8 +34,10 @@ function App() {
 	};
 
 	function handleOnclick(e) {
-		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)])
 		e.preventDefault();
+		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)]);
+
+		
 		// if value 0 do this:
 		if (sliderValue === 0) {
 			setResponse(ZeroFucks[Math.floor(Math.random() * ZeroFucks.length)]);
@@ -59,77 +62,99 @@ function App() {
 	}
 
 	return (
-		<main className="main">
-			<ChakraProvider>
-				<h1>Excuse generator</h1>
-
-				<div className="response">
-					<div className="response__bubble" >
-						<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
-							<p className="response__text">
-								{response?.length ? (
-									response
-								) : (
-									<>
-										Hi! I can help you spice up your{" "}
-										<span>absence channel</span> with
-										cutting edge excuses!
-									</>
-								)}
-							</p>
-						</CopyToClipboard>
-						<div className="response__triangle"></div>
+		<>
+			<Cursor />
+			<main className="main">
+				<ChakraProvider>
+					<div className="title">
+						<h1>Excuse generator</h1>
+						<img src="/sparkels.png" />
 					</div>
 
-					<img src={displayedImg} className="response__face" />
-				</div>
+					<div className="response">
+						<div className="response__bubble">
+							<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
+								<p className="response__text">
+									{response?.length ? (
+										response
+									) : (
+										<>
+											Hi! I can help you spice up your{" "}
+											<span>absence channel</span>{" "}
+											with cutting edge excuses!
+										</>
+									)}
+								</p>
+							</CopyToClipboard>
+							<div className="response__triangle"></div>
+						</div>
 
-				<form>
-					<div className="slider">
-						<Slider
-							defaultValue={20}
-							min={0}
-							max={60}
-							step={20}
-							onChange={(e) => setSliderValue(e)}
-							className="slider__thing"
-						>
-							<SliderMark
-								value={0}
-								mt="5"
-								ml="-9"
-								fontSize={{ base: "10px", md: "15px" }}
-							>
-								Zero Fucks Given
-							</SliderMark>
-							<SliderMark value={20} mt="5" ml="-5" fontSize={{ base: "10px", md: "15px" }}>
-								Credible
-							</SliderMark>
-							<SliderMark value={40} mt="5" ml="-5" fontSize={{ base: "10px", md: "15px" }}>
-								Fantasy
-							</SliderMark>
-							<SliderMark value={60} mt="5" ml="-5" fontSize={{ base: "10px", md: "15px" }}>
-								Hyperified
-							</SliderMark>
-
-							<SliderTrack
-								bg=""
-								height="10px"
-								border="2px"
-								borderColor="#1D2024"
-							>
-								<SliderFilledTrack bg="#1D2024" />
-							</SliderTrack>
-							<SliderThumb boxSize={6} bg="#D172A0" />
-						</Slider>
+						<img src={displayedImg} className="response__face" />
 					</div>
 
-					<button className="button" onClick={handleOnclick}>
-						generate
-					</button>
-				</form>
-			</ChakraProvider>
-		</main>
+					<form>
+						<div className="slider">
+							<Slider
+								defaultValue={20}
+								min={0}
+								max={60}
+								step={20}
+								onChange={(e) => setSliderValue(e)}
+								className="slider__thing"
+								cursor="none"
+							>
+								<SliderMark
+									value={0}
+									mt="5"
+									ml="-9"
+									fontSize={{ base: "10px", md: "15px" }}
+								>
+									Zero Fucks Given
+								</SliderMark>
+								<SliderMark
+									value={20}
+									mt="5"
+									ml="-5"
+									fontSize={{ base: "10px", md: "15px" }}
+								>
+									Credible
+								</SliderMark>
+								<SliderMark
+									value={40}
+									mt="5"
+									ml="-5"
+									fontSize={{ base: "10px", md: "15px" }}
+								>
+									Fantasy
+								</SliderMark>
+								<SliderMark
+									value={60}
+									mt="5"
+									ml="-5"
+									fontSize={{ base: "10px", md: "15px" }}
+								>
+									Hyperified
+								</SliderMark>
+
+								<SliderTrack
+									bg=""
+									height="10px"
+									border="2px"
+									borderColor="#1D2024"
+								>
+									<SliderFilledTrack bg="#1D2024" />
+								</SliderTrack>
+								<SliderThumb boxSize={6} bg="#D172A0" />
+							</Slider>
+						</div>
+
+						<button className="button" onClick={handleOnclick}>
+							generate
+						</button>
+					</form>
+				</ChakraProvider>
+			</main>
+		</>
 	);
 }
 

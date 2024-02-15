@@ -5,6 +5,8 @@ const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 const apiUrl = import.meta.env.VITE_OPENAI_CHAT_API;
 
 let previousMessages = [];
+
+
 export async function useOpenAI(question) {
 	const conversation = [
 		{ role: "system", content: "You are a helpful assistant." },

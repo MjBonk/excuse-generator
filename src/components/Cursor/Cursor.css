@@ -1,0 +1,7 @@
+.cursor{
+	width: 4em;
+	height: 4em;
+	position: fixed;
+	z-index: 100000;
+	pointer-events: none;
+}
