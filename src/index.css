@@ -96,10 +96,10 @@ form {
 	background-color: var(--other);
 	color: white;
 	padding: 0.5rem 1em;
-	/* font-size: 1.5rem;
+	font-size: 1.5rem;
 	font-family: Prioritis;
 	letter-spacing: 3px;
-	border: dashed var(--background) 6px; */
+	/* border: dashed var(--background) 6px; */
 }
 
 .slider {
