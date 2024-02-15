@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useOpenAI } from "./Hooks/useOpenAI";
 import { ChakraProvider, Img } from "@chakra-ui/react";
 import { Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark } from "@chakra-ui/react";
-import face from "./assets/placeholder-face.png";
+import face from "./assets/faces/og-face.png";
 import Hyperified from "../src/Data/Hyperified.json";
 import ZeroFucks from "../src/Data/ZeroFucks.json";
 import { CopyToClipboard } from "react-copy-to-clipboard";
