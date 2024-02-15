@@ -161,10 +161,8 @@ form {
 }
 
 @media (min-width: 800px) {
-
 	.title>h1 {
 		font-size: 4.5rem;
-		margin-top: 2rem;
 	}
 
 	.response__bubble {
@@ -176,7 +174,7 @@ form {
 @media (min-width: 992px) {
 	.title>h1 {
 		font-size: 6rem;
-		margin-top: 3rem;
+		margin-top: 1rem;
 	}
 
 	.response__text {
@@ -187,7 +185,6 @@ form {
 @media (min-width: 1200px) {
 	.title>h1 {
 		font-size: 6rem;
-		margin-top: 3rem;
 	}
 
 	.response__text {
