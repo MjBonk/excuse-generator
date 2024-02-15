@@ -2,6 +2,10 @@
 	font-family: Prioritis;
 	src: url("./assets/Righteous-Regular.ttf");
 }
+@font-face {
+	font-family: Cartoon;
+	src: url("./assets/Copyduck.ttf");
+}
 
 * {
 	margin: 0;
@@ -31,7 +35,7 @@
 h1 {
 	font-size: 3rem;
 	text-transform: uppercase;
-	font-family: Prioritis;
+	font-family: Cartoon;
 	line-height: 3rem;
 	color: #551d80;
 }
@@ -77,7 +81,7 @@ span {
 
 .response__face {
 	width: 6em;
-	margin-top: -2.5em;
+	margin-top: -2em;
 	margin-right: -1.5em;
 	z-index: 10;
 }
