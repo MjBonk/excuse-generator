@@ -13,10 +13,6 @@ function App() {
 	const [sliderValue, setSliderValue] = useState(20);
 	const [isCopied, setIsCopied] = useState(false);
 
-	useEffect(() => {
-		window.scrollTo(0, 1);
-	}, []);
-
 	const faces = [
 		"/faces/og-face.png",
 		"/faces/face1.png",
