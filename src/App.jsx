@@ -1,9 +1,8 @@
 import "./App.css";
 import { useState } from "react";
 import { useOpenAI } from "./Hooks/useOpenAI";
-import { ChakraProvider, Img } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark } from "@chakra-ui/react";
-import face from "./assets/faces/og-face.png";
 import Hyperified from "../src/Data/Hyperified.json";
 import ZeroFucks from "../src/Data/ZeroFucks.json";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -11,8 +10,22 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 function App() {
 	const [response, setResponse] = useState(null);
 	const [sliderValue, setSliderValue] = useState(20);
-
 	const [isCopied, setIsCopied] = useState(false);
+	const faces = [
+		"/faces/og-face.png",
+		"/faces/face1.png",
+		"/faces/face2.png",
+		"/faces/face3.png",
+		"/faces/face4.png",
+		"/faces/face5.png",
+		"/faces/face6.png",
+		"/faces/face7.png",
+		"/faces/face8.png",
+		"/faces/face9.png",
+		"/faces/face10.png",
+		"/faces/face11.png",
+	]
+	const [displayedImg, setDisplayedImg] = useState(faces[0])
 
 	const onCopyHandler = () => {
 		setIsCopied(true);
@@ -20,6 +33,7 @@ function App() {
 	};
 
 	function handleOnclick(e) {
+		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)])
 		e.preventDefault();
 		// if value 0 do this:
 		if (sliderValue === 0) {
@@ -50,7 +64,7 @@ function App() {
 				<h1>Excuse generator</h1>
 
 				<div className="response">
-					<div >
+					<div className="response__bubble" >
 						<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
 							<p className="response__text">
 								{response?.length ? (
@@ -67,7 +81,7 @@ function App() {
 						<div className="response__triangle"></div>
 					</div>
 
-					<img src={face} className="response__face" />
+					<img src={displayedImg} className="response__face" />
 				</div>
 
 				<form>
