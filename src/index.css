@@ -25,7 +25,8 @@
 
 .main {
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
+	min-height: 100vh;
 	background-color: var(--background);
 	display: flex;
 	flex-direction: column;
@@ -34,7 +35,7 @@
 	padding: 1em 2em 3em 1em;
 }
 
-.title{
+.title {
 	position: relative;
 	font-size: 3rem;
 }
@@ -45,9 +46,10 @@
 	line-height: 3rem;
 	color: #551d80;
 }
-.title>img{
+
+.title>img {
 	position: absolute;
-	display: none;
+	width: 1.3em;
 }
 
 span {
@@ -65,6 +67,16 @@ span {
 	padding-right: 1em;
 }
 
+.response__bubble:hover,
+.response__triangle:hover .response__bubble {
+	background-color: #f6d965;
+}
+
+.response__bubble:hover .response__triangle,
+.response__triangle:hover {
+	border-top: 3em solid #f6d965;
+}
+
 .response__bubble {
 	background-color: var(--accent);
 	padding: 1em 2em;
@@ -72,6 +84,7 @@ span {
 	position: relative;
 	font-size: 1.2rem;
 	z-index: 10;
+	transition: background-color .1s linear;
 }
 
 .response__text {
@@ -81,6 +94,7 @@ span {
 .response__triangle {
 	border-left: 3em solid transparent;
 	border-top: 3em solid var(--accent);
+	transition: border .1s linear;
 	rotate: -25deg;
 	background-color: transparent;
 	position: absolute;
@@ -88,6 +102,7 @@ span {
 	bottom: -2em;
 	z-index: -1;
 }
+
 
 .response__face {
 	width: 6em;
@@ -108,14 +123,21 @@ form {
 	text-transform: uppercase;
 	font-weight: bold;
 	border-radius: 20rem;
-	background-color: var(--other);
+	background-color: #D172A0;
 	color: white;
 	padding: 0.5rem 1em;
 	font-size: 1.5rem;
 	font-family: Prioritis;
 	letter-spacing: 3px;
 	cursor: none;
+	box-shadow: #1d2024 1px 2px 0, #1d2024 2px 3px 0, #1d2024 3px 4px 0, #1d2024 4px 5px 0;
+	transition: all .05s ease-in-out;
 	/* border: dashed var(--background) 6px; */
+}
+
+.button:active {
+	box-shadow: #1d2024 1px 1px 0;
+	transform: translate(3px, 3px);
 }
 
 .slider {
@@ -124,12 +146,13 @@ form {
 }
 
 @media (min-width: 800px) {
-	.title>img{
+	.title>img {
 		display: block;
 		width: 1em;
 		top: .3em;
 		left: -.9em;
 	}
+
 	h1 {
 		font-size: 4.5rem;
 		margin-top: 2rem;

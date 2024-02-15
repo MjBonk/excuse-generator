@@ -20,13 +20,13 @@ function Cursor() {
 		}
 
 		window.addEventListener("pointermove", handleMouseMove);
-		window.addEventListener("mousedown", handleCursorDown);
-		window.addEventListener("mouseup", handleCursorUp);
+		window.addEventListener("pointerdown", handleCursorDown);
+		window.addEventListener("pointerup", handleCursorUp);
 
 		return () => {
 			window.removeEventListener("pointermove", handleMouseMove)
-			window.removeEventListener("mousedown", handleCursorDown);
-			window.removeEventListener("mouseup", handleCursorUp);
+			window.removeEventListener("pointerdown", handleCursorDown);
+			window.removeEventListener("pointerup", handleCursorUp);
 		};
 	}, []);
 

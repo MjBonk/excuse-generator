@@ -37,7 +37,6 @@ function App() {
 		e.preventDefault();
 		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)]);
 
-		
 		// if value 0 do this:
 		if (sliderValue === 0) {
 			setResponse(ZeroFucks[Math.floor(Math.random() * ZeroFucks.length)]);
@@ -72,8 +71,8 @@ function App() {
 					</div>
 
 					<div className="response">
-						<div className="response__bubble">
-							<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
+						<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
+							<div className="response__bubble">
 								<p className="response__text">
 									{response?.length ? (
 										response
@@ -85,9 +84,9 @@ function App() {
 										</>
 									)}
 								</p>
-							</CopyToClipboard>
-							<div className="response__triangle"></div>
-						</div>
+								<div className="response__triangle"></div>
+							</div>
+						</CopyToClipboard>
 
 						<img src={displayedImg} className="response__face" />
 					</div>
