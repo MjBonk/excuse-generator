@@ -37,7 +37,7 @@
 
 .title {
 	position: relative;
-	font-size: 3rem;
+	font-size: 3.3rem;
 }
 
 .title>h1 {
@@ -49,7 +49,9 @@
 
 .title>img {
 	position: absolute;
-	width: 1.3em;
+	width: 1em;
+	top: 0;
+	left: 5em;
 }
 
 span {
@@ -145,15 +147,22 @@ form {
 	max-width: 50em;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 540px) {
 	.title>img {
 		display: block;
 		width: 1em;
-		top: .3em;
+		top: -.5em;
 		left: -.9em;
 	}
 
-	h1 {
+	.title {
+		margin-top: 2rem;
+	}
+}
+
+@media (min-width: 800px) {
+
+	.title>h1 {
 		font-size: 4.5rem;
 		margin-top: 2rem;
 	}
@@ -165,7 +174,7 @@ form {
 }
 
 @media (min-width: 992px) {
-	h1 {
+	.title>h1 {
 		font-size: 6rem;
 		margin-top: 3rem;
 	}
@@ -176,7 +185,7 @@ form {
 }
 
 @media (min-width: 1200px) {
-	h1 {
+	.title>h1 {
 		font-size: 6rem;
 		margin-top: 3rem;
 	}
