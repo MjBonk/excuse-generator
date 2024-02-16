@@ -9,7 +9,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Cursor from "./components/Cursor/Cursor";
 
 function App() {
-	const [response, setResponse] = useState(null);
+	const [response, setResponse] = useState("Hi! I can help you spice up your absence channel with cutting edge excuses!");
 	const [sliderValue, setSliderValue] = useState(20);
 	const [isCopied, setIsCopied] = useState(false);
 
@@ -37,6 +37,7 @@ function App() {
 	function handleOnclick(e) {
 		e.preventDefault();
 		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)]);
+		setResponse("Let me think....")
 
 		// if value 0 do this:
 		if (sliderValue === 0) {
