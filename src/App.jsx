@@ -68,7 +68,7 @@ function App() {
 				<main className="main">
 					<div className="title">
 						<h1>Excuse generator</h1>
-						<img src="/sparkels.png" />
+						<img src="/sparkels.png" alt="a friendly smileyface with big cartoon eyes saying the generated excuse" />
 					</div>
 
 					<div className="response">
