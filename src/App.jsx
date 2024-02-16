@@ -9,7 +9,9 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Cursor from "./components/Cursor/Cursor";
 
 function App() {
-	const [response, setResponse] = useState("Hi! I can help you spice up your absence channel with cutting edge excuses!");
+	const [response, setResponse] = useState(
+		"Hi! I can help you spice up your absence channel with cutting edge excuses!"
+	);
 	const [sliderValue, setSliderValue] = useState(20);
 	const [isCopied, setIsCopied] = useState(false);
 
@@ -37,7 +39,7 @@ function App() {
 	function handleOnclick(e) {
 		e.preventDefault();
 		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)]);
-		setResponse("Let me think....")
+		setResponse("Let me think....");
 
 		// if value 0 do this:
 		if (sliderValue === 0) {
@@ -45,14 +47,14 @@ function App() {
 			// if value 20 do this:
 		} else if (sliderValue === 20) {
 			useOpenAI(
-				"give a specific credible reason of why you can't attend the lecture today in 140 characters"
+				"make up a specific credible reason of why you can't attend the lecture today in 140 characters"
 			).then((reply) => {
 				setResponse(reply);
 			});
 			// if value 40 do this:
 		} else if (sliderValue === 40) {
 			useOpenAI(
-				"give a random story of why you can't attend the lecture today in no more than 250 characters"
+				"make up a random story of why you can't attend the lecture today in no more than 250 characters, feel free to use your fantasy."
 			).then((reply) => {
 				setResponse(reply);
 			});
@@ -69,7 +71,10 @@ function App() {
 				<main className="main">
 					<div className="title">
 						<h1>Excuse generator</h1>
-						<img src="/sparkels.png" alt="a friendly smileyface with big cartoon eyes saying the generated excuse" />
+						<img
+							src="/sparkels.png"
+							alt="a friendly smileyface with big cartoon eyes saying the generated excuse"
+						/>
 					</div>
 
 					<div className="response">
@@ -85,14 +90,15 @@ function App() {
 									COPIED!
 								</span>
 								<p className="response__text">
-									{response?.length ? (
-										response
-									) : (
+									{response ===
+									"Hi! I can help you spice up your absence channel with cutting edge excuses!" ? (
 										<>
 											Hi! I can help you spice up your{" "}
 											<span>absence channel</span>{" "}
 											with cutting edge excuses!
 										</>
+									) : (
+										response
 									)}
 								</p>
 								<div className="response__triangle"></div>
