@@ -88,7 +88,6 @@ function App() {
 								<div className="response__triangle"></div>
 							</div>
 						</CopyToClipboard>
-
 						<img src={displayedImg} className="response__face" />
 					</div>
 

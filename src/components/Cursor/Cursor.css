@@ -1,7 +1,13 @@
-.cursor{
+.cursor {
 	width: 4em;
 	height: 4em;
 	position: fixed;
 	z-index: 100000;
 	pointer-events: none;
+}
+
+@media (max-width: 500px) {
+	.cursor {
+		display: none;
+	}
 }
