@@ -97,11 +97,11 @@ span {
 .response__copied {
 	position: absolute;
 	font-size: 3rem;
-	left: 50%;
-	top: -2px;
-	transform: translate(-50%, -50%);
+	left: 0;
+	top: -30px;
+	transform: rotate(-10deg);
 	color: #D172A0;
-	font-family: Bratsy;
+	font-family: Prioritis;
 	/* scale: 0; */
 }
 
