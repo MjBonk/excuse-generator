@@ -31,7 +31,7 @@ function App() {
 
 	const onCopyHandler = () => {
 		setIsCopied(true);
-		setTimeout(() => setIsCopied(false), 2000); // Hide the success message after 2.5 seconds
+		setTimeout(() => setIsCopied(false), 1000); // Hide the success message after 2.5 seconds
 	};
 
 	function handleOnclick(e) {
@@ -74,7 +74,15 @@ function App() {
 					<div className="response">
 						<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
 							<div className="response__bubble">
-								<span className="response__copied">COPIED!</span>
+								<span
+									className="response__copied"
+									style={{
+										scale: isCopied ? "1" : "0",
+										rotate: isCopied ? "-10deg" : "0deg",
+									}}
+								>
+									COPIED!
+								</span>
 								<p className="response__text">
 									{response?.length ? (
 										response
