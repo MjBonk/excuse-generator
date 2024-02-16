@@ -94,6 +94,17 @@ span {
 	font-size: 0.9rem;
 }
 
+.response__copied {
+	position: absolute;
+	font-size: 3rem;
+	left: 50%;
+	top: -2px;
+	transform: translate(-50%, -50%);
+	color: #D172A0;
+	font-family: Bratsy;
+	/* scale: 0; */
+}
+
 .response__triangle {
 	border-left: 3em solid transparent;
 	border-top: 3em solid var(--accent);

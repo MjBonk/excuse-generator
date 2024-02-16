@@ -31,7 +31,7 @@ function App() {
 
 	const onCopyHandler = () => {
 		setIsCopied(true);
-		setTimeout(() => setIsCopied(false), 2500); // Hide the success message after 2.5 seconds
+		setTimeout(() => setIsCopied(false), 2000); // Hide the success message after 2.5 seconds
 	};
 
 	function handleOnclick(e) {
@@ -64,8 +64,8 @@ function App() {
 	return (
 		<>
 			<Cursor />
-			<main className="main">
-				<ChakraProvider>
+			<ChakraProvider>
+				<main className="main">
 					<div className="title">
 						<h1>Excuse generator</h1>
 						<img src="/sparkels.png" />
@@ -74,6 +74,7 @@ function App() {
 					<div className="response">
 						<CopyToClipboard text={`${response}`} onCopy={onCopyHandler}>
 							<div className="response__bubble">
+								<span className="response__copied">COPIED!</span>
 								<p className="response__text">
 									{response?.length ? (
 										response
@@ -151,8 +152,8 @@ function App() {
 							generate
 						</button>
 					</form>
-				</ChakraProvider>
-			</main>
+				</main>
+			</ChakraProvider>
 		</>
 	);
 }
