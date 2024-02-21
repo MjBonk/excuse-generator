@@ -31,6 +31,7 @@ function App() {
 
 	const onCopyHandler = () => {
 		setIsCopied(true);
+		window.dataLayer.push({'event':'copied'});
 		setTimeout(() => setIsCopied(false), 1000); // Hide the success message after 2.5 seconds
 	};
 
@@ -39,9 +40,11 @@ function App() {
 		setDisplayedImg(faces[Math.floor(Math.random() * faces.length)]);
 		setResponse("Let me think....");
 
+
 		// if value 0 do this:
 		if (sliderValue === 0) {
 			setResponse(ZeroFucks[Math.floor(Math.random() * ZeroFucks.length)]);
+			window.dataLayer.push({'event':'generate-submit','sliderValue': "zero-fucks"});
 			// if value 20 do this:
 		} else if (sliderValue === 20) {
 			useOpenAI(
@@ -49,6 +52,7 @@ function App() {
 			).then((reply) => {
 				setResponse(reply);
 			});
+			window.dataLayer.push({'event':'generate-submit','sliderValue': "credible"});
 			// if value 40 do this:
 		} else if (sliderValue === 40) {
 			useOpenAI(
@@ -56,9 +60,11 @@ function App() {
 			).then((reply) => {
 				setResponse(reply);
 			});
+			window.dataLayer.push({'event':'generate-submit','sliderValue': "fantasy"});
 			// if value 60 do this:
 		} else if (sliderValue === 60) {
 			setResponse(Hyperified[Math.floor(Math.random() * Hyperified.length)]);
+			window.dataLayer.push({'event':'generate-submit','sliderValue': "hyperified"});
 		}
 	}
 
