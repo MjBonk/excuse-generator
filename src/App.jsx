@@ -9,9 +9,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import Cursor from "./components/Cursor/Cursor";
 
 function App() {
-	const [response, setResponse] = useState(
-		"Hi! I can help you spice up your absence channel with cutting edge excuses!"
-	);
+	const [response, setResponse] = useState("Thanks for supporting our business!");
 	const [sliderValue, setSliderValue] = useState(20);
 	const [isCopied, setIsCopied] = useState(false);
 
@@ -54,7 +52,7 @@ function App() {
 			// if value 40 do this:
 		} else if (sliderValue === 40) {
 			useOpenAI(
-				"make up a random story of why you can't attend the lecture today in no more than 250 characters, feel free to use your fantasy."
+				"make up a random story of why you can't attend the lecture today in no more than 250 characters, feel free to use your fantasy but avoid using squirells."
 			).then((reply) => {
 				setResponse(reply);
 			});
@@ -91,11 +89,16 @@ function App() {
 								</span>
 								<p className="response__text">
 									{response ===
-									"Hi! I can help you spice up your absence channel with cutting edge excuses!" ? (
+									"Thanks for supporting our business!"? (
 										<>
-											Hi! I can help you spice up your{" "}
+											Hi! I'm an assistant that can
+											help you spice up your{" "}
 											<span>absence channel</span>{" "}
-											with cutting edge excuses!
+											with cutting edge excuses!{" "}
+											<i>
+												Psst! Click the text to
+												copy.
+											</i>
 										</>
 									) : (
 										response

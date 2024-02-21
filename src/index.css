@@ -60,6 +60,9 @@ span {
 	font-size: 1.4rem;
 	white-space: nowrap;
 }
+i{
+	color: #b49c3c
+}
 
 .response {
 	font-weight: 600;
@@ -88,6 +91,8 @@ span {
 	font-size: 1.2rem;
 	z-index: 10;
 	transition: background-color .1s linear;
+	min-width: 12rem;
+
 }
 
 .response__text {
