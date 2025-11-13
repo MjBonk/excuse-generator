@@ -27,6 +27,7 @@ function App() {
 		"/faces/face10.png",
 		"/faces/face11.png",
 	];
+	// test
 	const [displayedImg, setDisplayedImg] = useState(faces[0]);
 
 	const onCopyHandler = () => {
